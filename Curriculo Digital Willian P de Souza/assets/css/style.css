@@ -1,0 +1,340 @@
+/*
+--------------------------------------------
+ESTRUTURA BASE
+--------------------------------------------
+**** DECLARAÇÃO DE VARIAVEIS
+**** ESTILOS GERAIS
+**** BODY
+**** HEADER
+**** FOOTER
+**** PÁGINA INICIAL
+**** EXTRAS
+**** @MEDIA
+
+font-family: 'Open Sans', sans-serif;
+
+*/
+
+/* ESTILOS GERAIS */
+                                    /*APLICAÇÕES DE RESET NOS PRE-SETS*/
+
+html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a, main{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/*CONFIGURAÇÃO PARA TABLET, CELULARES DISPOSITIVOS MOVEIS (CONFIGURAÇÕES MOBILE)*/
+                           /*V*/
+                           /*V*/ 
+
+.coluna{
+    flex-basis: 49%;
+}
+
+:root{
+    --corBackgroundPrimaria: #494d51;
+    --corBackgroundSecundaria: #353943;
+    --corBackgroundDark:#0e0e0e;
+    --corTextPrimaria:#848383;
+    --corTextoSecudaria:#000;
+    --corLinhaBox:rgb(174, 130, 0);
+
+}
+
+.hidden{
+    display: none;
+}
+.container{
+        width: 100%;
+        max-width: 1125px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+    .linha{
+        display: flex;
+        flex-wrap: wrap; 
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+/* BODY */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* HEADER */
+header{
+    background-color: var(--corBackgroundPrimaria);
+    padding: 30px 30px 0;
+}
+header .container{
+    background-color: rgb(254, 254, 254);
+}
+header .linha{
+    align-items: center;
+}
+header .coluna-esquerda{
+    flex-basis: 30%;
+}
+header .coluna-direita{
+    flex-basis: 60%;
+    text-align: center;
+}
+
+header .coluna img{
+    max-width: 100%;
+}
+header .coluna h1{
+    font-size: 1.5rem;
+    color:var(--corTextoSecudaria);
+}
+header .coluna p{
+    font-size: 1rem;
+    color:var(--corTextPrimaria);
+}
+header .coluna ul{
+    margin: 16px 0 0;
+}
+header .coluna ul li{
+    margin: 0 0 12px;
+}
+header .coluna ul li a{
+    font-size: 1rem;
+    color:var(--corTextoSecudaria);
+}
+
+
+/* FOOTER */
+footer{
+    background-color:var(--corBackgroundSecundaria);
+}
+footer .container{
+    padding: 20px;
+}
+footer nav ul li a{
+    color: white;
+}
+
+footer nav .info-contato li{
+    margin: 0 0 15px;
+    
+}
+
+footer nav .redes-sociais{
+    border-top: 1px solid rgb(255 255 255 / 20%);
+    margin: 20px 0 50px;
+    padding: 50px 0 0;
+    text-align: center;
+}
+footer nav .redes-sociais li{
+    margin: 15px 28px;
+    text-align: center;
+    display: inline-block;
+}
+
+footer nav .redes-sociais li a img{
+    width: 100px;
+    transition: .2s;
+}
+footer nav .redes-sociais li a:hover img{
+    transform: scale(1.2) translateY(-10px);
+}
+
+
+/* PÁGINA INICIAL */
+main .coluna{
+    padding: 20px;
+}
+main .coluna section{
+    border-bottom: 1px solid #d4e9ff;
+    margin: 0 0 20px;
+    min-height: 187px;
+    color:var(--corTextoSecudaria);
+}
+
+main .coluna section h2{
+    font-size: 1.3rem;
+    margin: 0 0 15px;
+}
+main .coluna section p{
+    font-size: 0.9rem;
+    color: var(--corTextPrimaria);
+    line-height: 1.5;
+}
+
+main .coluna section ul li{
+    margin: 0 0 12px;
+}
+main .coluna section ul li h3{
+    font-size: 1.1rem;
+}
+main .coluna section ul li strong{
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 5px 0 10px;
+    display: inline-block;
+}
+
+
+/* EXTRAS */
+/* parte 04 da video aula*/
+.ativar-dark{
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+header .container{
+    position: relative; /*o container fica relativo ao pai que seria o header, para posicionar o botao de liga e desliga, utilizando em alguns casos*/
+    /* porem não é utilizado para posicionar no layout geral apenas em alguns casos*/
+}
+/*botao de desativar e ativar o darkmode*/
+label{
+    position: absolute; /*elemento fica posicionado como se estivesse flutuando*/
+    top: 30px; /*posicionamento referente ao topo*/
+    right: 30px;/**/
+    width: 52px;
+    height: 30px;
+    background-color: var(--corBackgroundSecundaria);
+    border-radius: 20px; /*arrendondamento no acabamento */
+    padding: 5px 5px;
+    box-sizing: border-box;
+    cursor: pointer; /*detalhe ao qual quando o usuario aproximar-se do botao mostra icone da mão */
+}
+label span{
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #d4e9ff;
+    border-radius: 100%;
+    transition: all ease .3s;/* efeito do botao resposta ao tempo de deslizar, utilizando a GPU*/
+}
+
+/* quando o input esta checado, aplicação do estilo ao label pro black a pagina*/
+.ativar-dark:checked ~ .dark-mode label{
+    background-color: #d4e9ff;
+}
+/* input do botao*/
+.ativar-dark:checked ~ .dark-mode label span{
+    background-color: var(--corBackgroundSecundaria);
+    /* margin-left: 21px; vira o botao pro lado dando a ideia de efeito do botao porem dá um delay*/
+    transform: translateX(21px);/* melhor indicado para aplicar ao efeito de deslizar do botao, pois a renderização fica encargo da placa grafica*/
+    transition: all ease .3s; /* efeito do botao resposta ao tempo de deslizar*/
+}
+
+.ativar-dark:checked ~ .dark-mode{
+    --corBackgroundPrimaria: rgb(0, 0, 0);
+    --corBackgroundSecundaria: rgb(174, 130, 0);
+    --corTextPrimaria:#fff;
+    --corTextoSecudaria:#fff;
+}
+.ativar-dark:checked ~ .dark-mode header{
+    background-color:var(--corBackgroundSecundaria) ;
+}
+.ativar-dark:checked ~ .dark-mode header .container{
+    background-color:var(--corBackgroundDark);
+}
+.ativar-dark:checked ~ .dark-mode  .container{
+    background-color:var(--corBackgroundDark);
+}
+.ativar-dark:checked ~ .dark-mode main{
+    background-color:var(--corBackgroundSecundaria);
+} 
+
+/*AS ANIMAÇÕES USANDO O KEYFRAMES*/
+/*DEFINI APENAS A ANIMAÇÃO */
+/*FAZENDO A CHAMADA DA FUNÇÃO AUMENTARLARGURA E AUMENTARALTURA DENTRO DO TOPO DIRETA E BAIXO ESQUERDA DAS SPANS*/
+@keyframes aumentarLargura{
+    from{
+        width: 0; 
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes aumentarAltura{
+    from{
+        height: 0;
+    }
+    to{
+        height: 100%;
+    }
+}
+
+/*QUANDO O USUARIO FOR ABRIR A PAGINA EM COMPUTADORES, AS NOVAS CONFIGURAÇÕES SÃO CARREGADAS DE ACORDO COM TAMNHA ACIMA DE 768px DA TELA*/
+
+/* @MEDIA */
+@media only screen and (min-width: 768px){
+
+    footer nav .redes-sociais {
+        display: flex;
+        justify-content: center;
+    }
+    header{
+        padding: 30px 0 0;
+    }
+    header .coluna img{
+        max-width: 250px;
+        border-radius: 100%;
+    }
+    
+    header .coluna-direita{
+        text-align: left;
+    }
+    main .coluna section{
+        /* border: 2px solid #d4e9ff; */
+        border: 2px solid transparent;
+        padding: 20px;
+        position: relative;
+    }
+ /*CONFIGURAÇÕES GENERICAS PARA TOPO-DIRETA E BAIXO-ESQUERDA, IRAO SE ENQUADRAR NOS DESENHOS DAS LINHAS DE CADA SPAN DA SECTION*/
+    main .coluna section span{
+        position: absolute;/*FICA FLUTUANDO A POSICÇÃO DA LINHA DE CADA SEÇÃO DO SPAN*/
+        display: block;
+        width: 0;/*AS LINHAS NÃO VAO DESENHAR ASSIM QUE A PAGINA ABRIR, ELAS TERAO UM DELAY AO QUAL SERAO DEFINADAS EM CADA SEÇÃO*/
+        height: 0;/*AS MESMA SE APLICAM PARA O TAMANHO ASSIM COMO A LARGURA, SERÃO DESENHADA APOS O DELAY DEFINIDO EM CADA SPAN*/
+        border: 2px solid transparent; /**/
+    }
+    /*ANIMAÇÕES DAS BORDAS DE CADA SEÇÃO*/
+    main .coluna section .topo-direita{ /*AS LINHAS SAO DESENHAS SEPARADAMENTE POR CADA SECTION DA SPAN*/
+        top: -2px;
+        left: -2px;
+        animation-name: aumentarLargura, aumentarAltura; /*CHAMADA DAS FUNÇÕES DA ANIMAÇÃO*/
+        animation-duration: 1s, 1s; /*TEMPO DE EXECUSÃO DA ANIMAÇÃO, COM 2 ANIMAÇÃO RESPECTIVAMENTE COM A LARGURA E ALTURA*/
+        animation-delay: 2s, 3s;/*DELAY ENTRE AS DUAS ANIMAÇÃO RESPECTIVO COM ALTURA E LARGURA*/
+        animation-fill-mode: forwards;/*DESENHA AS BORDAS E MANTEM NA VISUALIZAÇÃO APOS A ANIMAÇÃO TER COMEÇADO*/
+        border-top-color: rgb(174, 130, 0);
+        border-right-color: rgb(174, 130, 0);
+    }
+    main .coluna section .baixo-esquerda{  /*AS LINHAS SAO DESENHAS SEPARADAMENTE POR CADA SECTION DA SPAN*/
+        bottom: -2px;
+        right: -2px;
+        animation-name: aumentarLargura, aumentarAltura;/*CHAMADA DAS FUNÇÕES DA ANIMAÇÃO*/
+        animation-duration: 1s, 1s;/*TEMPO DE EXECUSÃO DA ANIMAÇÃO, COM 2 ANIMAÇÃO RESPECTIVAMENTE COM A LARGURA E ALTURA*/
+        animation-delay: 4s, 5s;/*DELAY ENTRE AS DUAS ANIMAÇÃO RESPECTIVO COM ALTURA E LARGURA*/
+        animation-fill-mode: forwards;/*DESENHA AS BORDAS E MANTEM NA VISUALIZAÇÃO APOS A ANIMAÇÃO TER COMEÇADO*/
+        border-bottom-color: rgb(174, 130, 0);
+        border-left-color: rgb(174, 130, 0);
+    }
+    main .coluna{
+        padding: 0;
+    }
+    footer nav .redes-sociais li{
+        margin: 0  14px;
+        text-align: center;
+        display: initial;
+    }
+    
+}
+
+@media only screen and (min-width: 991px){
+
+    header .coluna-direita{
+        flex-basis: 70%;
+    }
+}
